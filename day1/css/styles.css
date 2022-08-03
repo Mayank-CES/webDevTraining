@@ -1,0 +1,161 @@
+
+.header{
+  text-align: center;
+  width: 100%;
+  min-height: 50px;
+  background-color: pink;
+}
+
+.flexbox-container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  text-align: center;
+  min-height: 800px;
+}
+/* Responsive layout - makes a one column layout instead of a three-column layout
+@media (min-width: 600px) {
+    .flex-container {
+      flex-direction: column;
+    }
+} */
+
+.menu{
+  flex: 15%;
+  background-color: yellow;
+  min-height: 100px;
+}
+
+.content{
+  flex: 70%;
+  background-color: green;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:0;
+  top: 10%;
+}
+
+.aside{
+  flex: 15%;
+  background-color: orange;
+  min-height: 100px;
+}
+
+.ad{
+  width: min(170px,95%);
+}
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 600px) {
+
+  .menu, .content,.aside {
+    flex: 100%;
+  }
+
+}
+
+.footer{
+  text-align: center;
+  width: 100%;
+  min-height: 50px;
+  background-color: skyblue;
+}
+
+
+.form-container{
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgb(0,0,0,0.3);
+  width:300px;
+  max-width:100%;
+}
+.form-header{
+  background-color: #F7E2D6;
+  border-bottom: 1px solid #f0f0f0;
+  padding:20px 40px;
+}
+.form-header h2{
+  margin:0;
+}
+.form{
+  padding: 30px 40px;
+  
+}
+.form-control{
+  margin-bottom:10px;
+  padding-bottom:20px;
+  position:relative;
+}
+.form-control label{
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.form-control input{
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block;
+  font-size:15px;
+  padding:2px;
+  width:100%;
+  
+}
+
+.form-control.success input{
+  border-color: green;
+}
+
+.form-control.error input{
+  border-color: red;
+}
+
+.form-control i{
+  /* visibility:hidden; */
+  position:absolute;
+  top:28px;
+  right: -2px;
+}
+
+.form.control.success i.fa-check-circle{
+  color: green;
+  visibility: visible;
+}
+.form.control.error i.fa-exclamation-circle{
+  color: red;
+  visibility: visible;
+}
+
+
+.form-control small{
+  visibility:hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.form-control.error small{
+  visibility: visible;
+  color: red;
+}
+.form button{
+  background-color: #47B5FF;
+  border: 2px solid #47B5FF;
+  border-radius: 4px;
+  display:block;
+  padding:2px;
+  width: 100%;
+  font-size: 15px;
+}
+  
+table, th, td {
+  background-color: whitesmoke;
+  border: 2px solid black;
+  border-collapse: collapse;
+  padding: 10px 30px;
+  text-align: left;
+}
+th{
+  background-color: silver;
+  font-size: large;
+}

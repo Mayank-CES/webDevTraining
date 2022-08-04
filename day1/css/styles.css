@@ -117,11 +117,11 @@
   right: -2px;
 }
 
-.form.control.success i.fa-check-circle{
+.form.control.success fas i.fa-check-circle{
   color: green;
   visibility: visible;
 }
-.form.control.error i.fa-exclamation-circle{
+.form.control.error fas i.fa-exclamation-circle{
   color: red;
   visibility: visible;
 }

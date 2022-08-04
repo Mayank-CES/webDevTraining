@@ -83,7 +83,7 @@ function validateForm(){
     corrPerson=true;
     setSuccessFor(person)
     }
-    if (contactValue.length != 3){
+    if (contactValue.length != 10){
     setErrorFor(contact,'Contact should be of appropriate length')
     }else{
         corrPhone=true;

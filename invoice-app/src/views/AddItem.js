@@ -1,4 +1,5 @@
 import { useState,useContext } from 'react'
+import { postItemsAPI } from '../components/Api';
 import FormInput from "../components/FormInput";
 import { AppContext } from '../context/AppContext';
 
@@ -16,7 +17,7 @@ const AddItem = () => {
         name: "",
         description: "",
         price: "",
-        addedOn:"",
+        // addedOn:"",
       });
     
       const inputs = [
@@ -28,7 +29,7 @@ const AddItem = () => {
           errorMessage:
             "Name shouldn't include any numbers and special character!",
           label: "Name",
-          pattern: "^[A-Za-z]{2,}$",
+          pattern: "^[a-zA-Z ]{2,}$",
           required: true,
         },
         {
@@ -57,12 +58,21 @@ const AddItem = () => {
      
       const handleSubmit = (e) => {
         e.preventDefault();
-        values.addedOn=formatDate;
+        // values.addedOn=formatDate;
         // console.log(values)
+        const data = { name: values.name, description: values.description, price: parseInt(values.price)}
+        console.log(data);
+
+        // const val=`{"name": "${values.name}","description": "${values.description}","price": ${values.price}}`;
+        // console.log(val)
+
+        postItemsAPI(data)
         dispatch({
-          type: 'ADD_ITEM',
-          payload: values,
+          type: 'POST_ITEM',
+          payload: data,
         });
+
+        alert("Item Successfully Added");
       };
     
       const onChange = (e) => {
@@ -70,28 +80,25 @@ const AddItem = () => {
       };
 
     return (
-        <>
-            <div className="add-form">
-                <div className="title" >
-                    <h2>Add Item</h2>
-                </div>
-                <div className="card width-50">
-                    <form onSubmit={handleSubmit}>
-                        {/* <h1>Register</h1> */}
-                        {inputs.map((input) => (
-                        <FormInput
-                            key={input.id}
-                            {...input}
-                            value={values[input.name]}
-                            onChange={onChange}
-                        />
-                        ))}
-                        <button className="badge-pill">Save Item</button>
-                    </form>
-                </div>
-            </div>
-
-        </>
+      <div className="background-ghost-white">
+        <div className="title-form" >
+          <h2>Add Item</h2>
+        </div>
+        <div className="add-form">
+          <form onSubmit={handleSubmit}>
+              {/* <h1>Register</h1> */}
+              {inputs.map((input) => (
+              <FormInput
+                  key={input.id}
+                  {...input}
+                  value={values[input.name]}
+                  onChange={onChange}
+              />
+              ))}
+              <button className="badge-pill form-button">Save Item</button>
+          </form>
+        </div>
+      </div>
     )
 }
 

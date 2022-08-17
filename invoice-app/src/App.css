@@ -19,7 +19,7 @@ tr{
 }
 
 .header{
-  background-color: 	MediumSlateBlue;
+  background-color: 	slateblue;
   color: white;
   text-align: left;
   width: 100%;
@@ -29,7 +29,7 @@ tr{
 .menu{
   width: 20%;
   background-color: white;
-  /* background-color: lavender; */
+  /* background-color: ghostwhite; */
   /* min-height: 400px; */
   text-align: left;
 }
@@ -42,17 +42,17 @@ tr{
 }
 
 .menu-item:hover {
-  background-color: lavender;
-  transition: 0.3s;
+  background-color: azure;
+  transition: 0.2s;
 }
 
 .menu-selected{
 
-  background-color: lavender;
-  border: 5px solid lavender;
-  border-left: 10px solid blueviolet;
+  background-color: ghostwhite;
+  border: 5px solid ghostwhite;
+  border-left: 10px solid slateblue;
 
-  color: blueviolet;
+  color: slateblue;
   padding: 5px 5px 5px 15px;
   /* margin: 5px 10px 5px 10px; */
 }
@@ -66,30 +66,33 @@ tr{
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: flex-start;
-  background-color: lavender;
-  width: 75%;
+  background-color: ghostwhite;
+  width: 80%;
   /* min-height: 400px; */
   /* height: 75%; */
-  padding: 2.5%;
+  /* padding: 2.5%; */
 }
 
 .title{
-  width: min(50%,600px);
+  width: min(45%,600px);
   text-align: left;
-  height: 50px;
-  margin-bottom: 50px;
+  /* height: 50px; */
+  margin: 5px 0% 10px 5%;
+  /* margin-bottom: 50px; */
 }
 .badge{
-  width: min(50%,600px);
+  width: min(45%,600px);
   text-align: right;
-  height: 50px;
-  margin-bottom: 5px;
+  /* height: 50px; */
+  margin: 20px 5% 5px 0%;
+
+  /* margin-bottom: 5px; */
 }
 .badge-pill{
-  background-color: blueviolet;
+  background-color: slateblue;
   color: white;
-  padding: 2px 4px;
-  margin: 16px 0px 20px 0px;
+  padding: 10px 10px 10px 10px;
+  margin: 20px 0px 20px 0px;
   text-align: center;
   border-radius: 5px;
 }
@@ -104,16 +107,29 @@ tr{
 .table-head,.table-row{
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-start;
-  width: 100%;
-  /* margin: 10px 0px 10px 0px; */
-  padding: 5px 0px 5px 0px;
+  width: 80%;
+  margin: 25px 5% 25px 5%;
+  padding: 15px 5% 15px 5%;
   border-radius: 5px;
   text-align: left;
 }
+.table-head{
+  color: darkslategray;
+  font-size: 14px;
+  margin-top: 20px;
+  /* width: 95%;
+  margin: 10px 2.5% 10px 2.5%; */
+  /* padding: 15px 0px 15px 0px; */
+}
 .table-row{
   background-color: white;
+
+}
+.table-row:hover {
+  background-color: azure;
+  transition: 0.2s;
 }
 
 
@@ -157,45 +173,87 @@ tr{
 .card{
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  margin: 5px 15px 5px 15px;
+  margin: 5px 5px 5px 5px;
   background-color: white;
 }
-.add-form{
-  background-color: lavender;
-  width: 75%;
-  min-height: 400px;
-  height: 75%;
-  padding: 2.5%;
+
+.background-ghost-white{
+  background-color: ghostwhite;
+  width: 80%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.title-form{
+  width:95%;
+  text-align: left;
+  margin: 5px 0% 10px 5%;
+}
+form{
+  /* width: 100%; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  flex-flow: row wrap;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  margin: 20px 5% 20px 5%;
+  background-color: white;
+  /* min-height: 400px; */
+  width: 85%;
+  padding: 20px 2.5% 20px 2.5%;
+}
+.out-form{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.164);
+  transition: 0.3s;
+  margin: 5px 5px 5px 5px;
+  background-color: white;
+  width: 80%;
 }
 
 .formInput{
-  display: flex;
-  flex-flow: column wrap;
+  /* display: flex; */
+  /* margin: 15px 0px 15px 0px; */
+  flex-flow: column nowrap;
+  width: 40%;
+  padding: 10px 5px 10px 5px;
+  color: darkslategray;
+
 }
 
-input{
-  padding: 15px; 
-  margin: 5px 10px 5px 10px;
+.form-button{
+  margin-top: 38px;
+  margin-left: 25px;
+}
+
+.form-input-vals{
+  padding: 10px 10px 10px 20px; 
+  margin: 10px 10px 10px 20px;
   border-radius: 5px;
-  border: 1px solid black;
-  width: 50%;
+  border: 1px solid darkslategray;
+  /* width: 50%; */
   text-align: left;
+  font-size: small;
+  width: 75%;
 }
 
 
 label{
-  font-size: large;
-  width: 100%;
+  font-size: medium;
+  width: 90%;
   text-align: left;
+  margin: 5px 10px 0px 20px;
 }
 
-span{
-  font-size: small;
+.form-error{
+  font-size: smaller;
   padding: 2px;
-  margin-left: 10px;
+  /* margin-left: 10px; */
+  margin: 5px 10px 0px 20px;
   color: red;
   display: none;
   text-align: left;
+  width: 90%;
 }
 
 input:invalid[focused="true"]{
@@ -209,4 +267,50 @@ input:invalid[focused="true"] ~ span{
 .width-50{
   width: 45%;
   padding: 2.5%;
+}
+
+.width-25{
+  width: min(15%,200px);
+  padding: 6px;
+
+  /* margin: 5px 5px 5px 5px; */
+  margin-top: 0px;
+  margin-left: 60%;
+  /* justify-content: flex-end; */
+  font-size: medium;
+}
+.page-index{
+  align-items: center;
+  margin: 30px 0px 20px 0px;
+  /* padding-top: 20px; */
+  color: black;
+  font-size: medium;
+}
+.page-index-item{
+  padding: 10px 10px 5px 10px;
+  margin-top: 20px;
+}
+
+.page-val{
+  font-size: larger;
+}
+
+.per-page{
+
+  display:flex;
+  flex-direction: row; 
+  align-items: center;
+  justify-content: center;
+  /* width: 10%; */
+  /* margin-right: 47.5%;
+  margin-left: 47.5%; */
+  align-self: center;
+  /* text-align: center; */
+  margin: 0px 10px 50px 10px;
+}
+.per-page-val{
+  width: max(2%,20px);
+  text-align: center;
+  padding: 5px 5px 5px 5px;
+  font-size: large;
 }

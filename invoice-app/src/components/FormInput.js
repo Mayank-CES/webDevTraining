@@ -9,9 +9,9 @@ const FormInput = (props) => {
   };
 
   return (
-    <div className="formInput flex-col width-50">
+    <div className="formInput">
       <label>{label}</label>
-      <input
+      <input className="form-input-vals"
         {...inputProps}
         onChange={onChange}
         onBlur={handleFocus}
@@ -21,7 +21,7 @@ const FormInput = (props) => {
         }
         focused={focused.toString()}
       />
-      <span>{errorMessage}</span>
+      <span className="form-error">{errorMessage}</span>
     </div>
   );
 };

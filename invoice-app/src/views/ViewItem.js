@@ -1,18 +1,52 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import { AppContext } from '../context/AppContext';
-import TableRow from '../components/tableRow';
 import { MdAdd } from 'react-icons/md'
-
+import { useNavigate } from "react-router-dom";
+import Table from '../components/Table';
+import { getItemsAPI} from '../components/Api';
+import { itemHeaders, searchOptions2 } from '../utils/Constant';
 
 
 const ViewItem = () => {
-    const { items } = useContext(AppContext);
-
+    const { items, dispatch } = useContext(AppContext);
+    let navigate = useNavigate();
     const { currentMenu, changeView } = useContext(AppContext);
+
+    // console.log(itemVal)
+
+    // useEffect(() => {
+    //     const data = MakeGetItemCall();
+    //     dispatch({
+    //         type: 'SET_ITEM',
+    //         payload: data,
+    //     });
+    // });
+
+    useEffect(() => {
+        (async () => {
+            const data = await getItemsAPI();
+            var mappedData = []
+            // console.log(data)
+            mappedData = mapItem(data, mappedData);
+            dispatch({
+                type: 'SET_ITEM',
+                payload: mappedData,
+            });
+            console.log(...data)
+            
+            // console.log(...mappedData)
+            // console.log(items);
+        })();
+        return () => { };
+    }, []);
+
 
     const handleClick = () =>{
         console.log("Clicked New Item Button")
-        changeView(currentMenu,'add-item')
+        // const {itemVal} =MakeGetItemCall;
+        // console.log(itemVal);
+        // changeView(currentMenu,'add-item');
+        navigate("/add-item");
     };
   return ( 
     <>
@@ -23,40 +57,30 @@ const ViewItem = () => {
             <div className="badge" >
                 <button className="badge-pill"  onClick={handleClick}><MdAdd/> New Item</button>
             </div>
-            <div className="table">
-                <div className="table-head">
-                    <b className="table-column">NAME</b>
-                    <b className="table-column">DESCRIPTION</b>
-                    <b className="table-column">PRICE</b>
-                    <b className="table-column">ADDED ON</b>
-                </div>
-                {items.map((item) =>(
-                    // <div className="table-row">
-                    //     <div className="table-column">{item.name}</div>
-                    //     <div className="table-column">{item.phone}</div>
-                    //     <div className="table-column">{item.email}</div>
-                    //     <div className="table-column">{item.createdOn}</div>
-                    // </div>
-                    <TableRow
-                        name={item.name}
-                        phone={item.description}
-                        email={item.price}
-                        createdOn={item.addedOn}
-                        >
-
-                    </TableRow>
-                ))}
-                {/* <div className="table-row">
-                    <div className="table-column">Mayank</div>
-                    <div className="table-column">+919876543210</div>
-                    <div className="table-column">mayank@razorpay.com</div>
-                    <div className="table-column">01 Aug 2022</div>
-                </div> */}
-
-            </div>
+            <Table
+                 values = {items}
+                 headers ={itemHeaders}
+                 searchOptions ={searchOptions2}
+                >
+                </Table>
         </div>
     </>
   )
 };
 
 export default ViewItem;
+
+function mapItem(data, mappedData) {
+    data.map((val) => (
+        mappedData = [
+            ...mappedData,
+            {   id: val.id,
+                name: val.name,
+                description: val.description,
+                price: val.price,
+                addedOn: new Date(val.created_at).toUTCString().slice(5,16)
+            }
+        ]
+    ));
+    return mappedData;
+}

@@ -1,4 +1,5 @@
-import { useState,useContext } from 'react'
+import { useState,useContext} from 'react'
+import { postCustomersAPI } from '../components/Api';
 import FormInput from "../components/FormInput";
 import { AppContext } from '../context/AppContext';
 
@@ -28,7 +29,7 @@ const AddCustomer = () => {
           errorMessage:
             "Name shouldn't include any numbers and special character!",
           label: "Name",
-          pattern: "^[A-Za-z]{2,}$",
+          pattern: "^[A-Za-z ]{2,}$",
           required: true,
         },
         {
@@ -55,12 +56,18 @@ const AddCustomer = () => {
     
       const handleSubmit = (e) => {
         e.preventDefault();
-        values.createdOn=formatDate;
-        console.log(values)
+        // values.createdOn=formatDate;
+        // console.log(values)
+
+        const data = { name: values.name, phone: values.phone, email: values.email}
+        console.log(data);
+        postCustomersAPI(data);
+        
         dispatch({
-          type: 'ADD_CUSTOMER',
-          payload: values,
+          type: 'POST_CUSTOMER',
+          payload: data,
         });
+        alert("Customer Successfully Added");
         
       };
     
@@ -69,28 +76,26 @@ const AddCustomer = () => {
       };
 
     return (
-        <>
+        <div className="background-ghost-white">
+              <div className="title-form" >
+                <h2>Add Customer</h2>
+              </div>
             <div className="add-form">
-                <div className="title" >
-                    <h2>Add Customer</h2>
-                </div>
-                <div className="card">
-                    <form onSubmit={handleSubmit}>
-                        {/* <h1>Register</h1> */}
-                        {inputs.map((input) => (
-                        <FormInput
-                            key={input.id}
-                            {...input}
-                            value={values[input.name]}
-                            onChange={onChange}
-                        />
-                        ))}
-                        <button className="badge-pill">Save Customer</button>
-                    </form>
-                </div>
+              <form onSubmit={handleSubmit}>
+                  {/* <h1>Register</h1> */}
+                  {inputs.map((input) => (
+                  <FormInput
+                      key={input.id}
+                      {...input}
+                      value={values[input.name]}
+                      onChange={onChange}
+                  />
+                  ))}
+                  <button className="badge-pill form-button">Save Customer</button>
+              </form>
             </div>
 
-        </>
+        </div>
     )
 }
 

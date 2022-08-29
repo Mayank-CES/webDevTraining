@@ -3,12 +3,12 @@ const VIEWS = {
   VIEW_CUSTOMER: 'view-customer',
   ADD_ITEM: 'add-item',
   VIEW_ITEM: 'view-item',
-  ADD_INVOICE: 'add-customer',
-  VIEW_INVOICE: 'view-customer',
+  ADD_INVOICE: 'add-invoice',
+  VIEW_INVOICE: 'view-invoice',
 }
 
 const initialState = {
-  customers: [{name: 'Mayank', phone: '9090900909', email: 'mayank@gmail.com', createdOn: '13 Aug 2022'}],
+  customers: [],
   items: [],
   invoices: [],
   currentMenu: 'customer',
@@ -20,8 +20,8 @@ const PATHS = {
   VIEW_CUSTOMER: 'view-customer',
   ADD_ITEM: 'add-item',
   VIEW_ITEM: 'view-item',
-  ADD_INVOICE: 'add-customer',
-  VIEW_INVOICE: 'view-customer',
+  ADD_INVOICE: 'add-invoice',
+  VIEW_INVOICE: 'view-invoice',
 }
 
 const searchOptions1 = [
@@ -38,12 +38,20 @@ const searchOptions2 = [
   // { key: 4, value: "All" }
 ];
 
-
+const searchOptions3 = [
+  // { key: 1, value: "DATE" },
+  { key: 2, value: "Customer" },
+  { key: 3, value: "Number" },
+  { key: 4, value: "Paid Status" },
+  // { key: 5, value: "AMOUNT" },
+  // { key: 6, value: "AMOUNT DUE" },
+  // { key: 4, value: "All" }
+];
 
 // const customerHeaders  = ["Name","Phone","Email","Created On"];
 // const itemHeaders  = ["Name","Description","Price","Added On"];
 const customerHeaders  = ["NAME","PHONE","EMAIL","CREATED ON"];
 const itemHeaders  = ["NAME","DESCRIPTION","PRICE","ADDED ON"];
+const invoiceHeaders  = ["DATE","CUSTOMER","NUMBER","PAID STATUS", "AMOUNT","AMOUNT DUE"];
 
-
-export {VIEWS, initialState, PATHS, customerHeaders, itemHeaders, searchOptions1, searchOptions2}
+export {VIEWS, initialState, PATHS, customerHeaders, itemHeaders, invoiceHeaders, searchOptions1, searchOptions2, searchOptions3}

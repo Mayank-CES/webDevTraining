@@ -7,11 +7,13 @@ import {
 
 import { AppProvider } from './context/AppContext';
 import SharedLayout from './components/SharedLayout';
-import ViewCustomer from './views/ViewCustomer';
-import AddCustomer from './views/AddCustomer'
-import ViewItem from './views/ViewItem';
-import AddItem from './views/AddItem'
+import ViewCustomer from './views/customer/ViewCustomer';
+import AddCustomer from './views/customer/AddCustomer'
+import ViewItem from './views/item/ViewItem';
+import AddItem from './views/item/AddItem'
 import Error from './components/Error'
+import AddInvoice from './views/invoice/AddInvoice'
+import ViewInvoice from './views/invoice/ViewInvoice'
 import { VIEWS } from './utils/Constant'
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
             <Route path={VIEWS.VIEW_CUSTOMER} element={<ViewCustomer/>} />
             <Route path={VIEWS.ADD_ITEM} element={<AddItem/>} />
             <Route path={VIEWS.VIEW_ITEM} element={<ViewItem/>} />
+            <Route path={VIEWS.ADD_INVOICE} element={<AddInvoice/>} />
+            <Route path={VIEWS.VIEW_INVOICE} element={<ViewInvoice/>} />
             <Route path='*' element={<Error />} />
           </Route>
         </Routes>

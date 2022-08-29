@@ -1,0 +1,261 @@
+form{
+    /* width: 100%; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    flex-flow: row wrap;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin: 20px 5% 20px 5%;
+    background-color: white;
+    /* min-height: 400px; */
+    width: 85%;
+    padding: 20px 2.5% 20px 2.5%;
+}
+/* .out-form{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.164);
+    transition: 0.3s;
+    margin: 5px 5px 5px 5px;
+    background-color: white;
+    width: 80%;
+}
+
+.formInput{
+    flex-flow: column nowrap;
+    width: 40%;
+    padding: 10px 5px 10px 5px;
+    color: darkslategray;
+
+}
+
+.form-button{
+    margin-top: 38px;
+    margin-left: 25px;
+}
+
+.form-input-vals{
+    padding: 10px 10px 10px 20px; 
+    margin: 10px 10px 10px 20px;
+    border-radius: 5px;
+    border: 1px solid darkslategray;
+    text-align: left;
+    font-size: small;
+    width: 75%;
+}
+
+
+label{
+    font-size: medium;
+    width: 90%;
+    text-align: left;
+    margin: 5px 10px 0px 20px;
+}
+
+.form-error{
+    font-size: smaller;
+    padding: 2px;
+    margin: 5px 10px 0px 20px;
+    color: red;
+    display: none;
+    text-align: left;
+    width: 90%;
+}
+
+input:invalid[focused="true"]{
+    border: 1px solid red;
+}
+
+input:invalid[focused="true"] ~ span{
+    display: block;
+} */
+
+.invoice-table{
+    /* display:flex; */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* margin:25px 0; */
+    border-collapse: collapse;
+    border-style: none;
+    align-self: center;
+    margin:10px 20px 10px 50px;
+}
+table, th, td {
+    text-align: left;
+}
+.invoice-table thead tr{
+    font-weight: bold;
+
+}
+.invoice-table thead tr,
+.invoice-table tbody tr{
+    background-color: white;
+    margin-top: 5px;
+    width:100%;
+    border-bottom: 10px solid ghostwhite;
+}
+.invoice-table th,
+.invoice-table td{
+    padding:15px 15px;
+}
+
+
+.background-ghost-white{
+    background-color: ghostwhite;
+    width: 80%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.invoice-form-title{
+    width: min(45%,600px);
+    text-align: left;
+    margin: 5px 0% 10px 5%;
+}
+
+.badge{
+    width: min(45%,500px);
+    text-align: right;
+    margin: 20px 5% 5px 0%;
+}
+.badge-pill{
+    background-color: slateblue;
+    color: white;
+    padding: 10px 10px 10px 10px;
+    margin: 0px 0px 20px 0px;
+    text-align: center;
+    border-radius: 5px;
+}
+  
+.customer-info{
+    /* display: flex; */
+    flex-flow:row wrap;
+    /* margin: 5px;  */
+    font-size: small;
+}
+.form-get-id{
+    display:flex;
+    flex-flow:column wrap;
+    width: min(200,30%);
+    padding:10px 10px 10px 15px;
+    margin: 20px 0px 10px 55px;
+    /* border: 1px solid slategray; */
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    text-align: left;
+}
+.form-inside{
+    padding: 30px 0px 30px 15px;
+}
+.customer-values{
+    flex-flow:column wrap;
+    padding:5px 25px 5px 25px;
+    margin: 0px 20px 10px 0px;
+    border: 1px solid slategray;
+    font-size: small;
+
+}
+.customer-input{
+    display:flex;
+    align-self: center;
+    margin: 10px;
+    padding: 10px;
+    color:blue;
+}
+.bill-info{
+    /* display: flex; */
+    flex-flow:row wrap;
+    margin: 5px 15px 5px 15px; 
+    font-size: small;
+
+    /* width: min(200,30%); */
+}
+.form-bill{
+    margin: 15px 0px 30px 0px;
+    padding:20px 20px 20px 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    text-align: left;
+}
+.address-input{
+    width:100%;
+    height: 66px;
+}
+
+.button-pill{
+    background-color: slateblue;
+    color: white;
+    padding: 10px 10px 10px 10px;
+    margin: 0px 0px 20px 0px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* .invoice-table-row{
+    background-color: white;
+    margin: 10px 0px 10px 0px;
+    padding:5px 10px 5px 10px;
+} */
+label{
+    font-size: small;
+    color: black;
+}
+
+.item-form{
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.add-item-button{
+    padding:5px 10px 5px 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+.notes{
+    margin:10px 20px 50px 55px;
+    padding: 10px 20px 10px 20px;
+    text-align: left;
+    width: min(40%,300px);
+    height: 100px;
+    /* background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
+}
+.notes-input{
+    width: 95%;
+    height:60%;
+}
+.total-amount{
+    display: flex;
+    margin:50px 30px 50px 20px;
+    padding: 10px 20px 10px 20px;
+    height:60px;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.width-20{
+    width: min(20%,200px);
+}
+.width-30{
+    width: min(45%,500px);
+}
+.width-100{
+    width: 95%
+}
+.margin-left{
+    margin-left:10px;
+}
+.invoice-info{
+    width: min(50%,500px)
+}
+.color-grey{
+    color:gray;
+}
+

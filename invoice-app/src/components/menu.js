@@ -1,4 +1,4 @@
-import React,{ useContext } from 'react'
+import React,{ useState } from 'react'
 import { BsFillPersonFill } from 'react-icons/bs';
 import { AiFillStar } from "react-icons/ai";
 import { IoDocumentTextSharp } from "react-icons/io5";
@@ -6,8 +6,21 @@ import { AppContext } from '../context/AppContext'
 import { useNavigate } from "react-router-dom";
 
 const Menu = () => {
-  const { currentMenu, changeMenu} =useContext(AppContext)
+  // const { currentMenu, changeMenu} =useContext(AppContext)
   let navigate = useNavigate();
+  let linkLocation= window.location.href.slice(22,);
+  // var currentMenu='invoices';
+
+  var section='customers';
+  if (linkLocation=='view-customer' || linkLocation=='add-customer'){
+    section='customers';
+  }else if (linkLocation=='view-item' || linkLocation=='add-item' ){
+    section='items';
+  }else if (linkLocation=='view-invoice' || linkLocation=='add-invoice'){
+    section='invoices';
+  }
+  const [currentMenu, changeMenu] = useState(section)
+  // console.log("Link of Page ",linkLocation);
 
   const menuHandler = (menu) =>{
     // console.log({menu});
@@ -17,10 +30,10 @@ const Menu = () => {
         navigate("/view-customer")
         break;
       case "items":
-          navigate("/view-item")
-          break;
+        navigate("/view-item")
+        break;
       case "invoices":
-        navigate("/view-customer")
+        navigate("/view-invoice")
         break;
       default :
         alert("Error while accessing menu.")

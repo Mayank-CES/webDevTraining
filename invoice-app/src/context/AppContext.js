@@ -1,7 +1,7 @@
 import React, { createContext, useReducer, useState, useEffect} from 'react';
 // import { v4 as uuidv4 } from 'uuid';
 import {VIEWS,initialState} from '../utils/Constant'
-import { getCustomersAPI, getItemsAPI} from '../components/Api';
+import { getCustomersAPI, getItemsAPI, getInvoicesAPI} from '../components/Api';
 
 // const VIEWS = {
 //     ADD_CUSTOMER: 'add-customer',
@@ -26,6 +26,12 @@ export const AppReducer = (state, action) => {
 				items: [...state.items, action.payload],
 
 			};
+		case 'ADD_INVOICE':
+			return {
+				...state,
+				invoices: [...state.invoices, action.payload],
+
+			};
 		case 'SET_ITEM':
 			return {
 				...state,
@@ -48,6 +54,17 @@ export const AppReducer = (state, action) => {
 				...state,
 				customers: [...state.customers, action.payload],
 			};
+		case 'SET_INVOICE':
+			return {
+				...state,
+				invoices: [...action.payload],
+
+			};
+		// case 'POST_INVOICE':
+		// 	return {
+		// 		...state,
+		// 		invoices: [...state.invoices, action.payload],
+		// 	};
 		case 'CHANGE_VIEW':
 			return {
 				...state,
@@ -92,15 +109,15 @@ export const AppProvider = (props) => {
 					}
 				]
 			));
-            dispatch({
-                type: 'SET_CUSTOMER',
-                payload: mappedData,
-            });
+			dispatch({
+				type: 'SET_CUSTOMER',
+				payload: mappedData,
+			});
             console.log(...data)
             // data.map((val)=>(
             //     console.log( val.name)
             // ));
-            console.log(...mappedData)
+            // console.log(...mappedData)
         })();
         return () => { };
     }, []);
@@ -109,7 +126,7 @@ export const AppProvider = (props) => {
         (async () => {
             const data = await getItemsAPI();
             var mappedData = []
-            console.log(data)
+            // console.log(data)
 			data.map((val) => (
 				mappedData = [
 					...mappedData,
@@ -125,41 +142,50 @@ export const AppProvider = (props) => {
                 type: 'SET_ITEM',
                 payload: mappedData,
             });
-            console.log(...data)
+            // console.log(...data)
             // data.map((val)=>(
             //     console.log( val.name)
             // ));
-            console.log(...mappedData)
+            // console.log(...mappedData)
+            // console.log(items);
+        })();
+        return () => { };
+    }, []);
+
+	useEffect(() => {
+        (async () => {
+            const data = await getInvoicesAPI();
+            var mappedData = []
+            // console.log(data)
+            data.map((val) => (
+				mappedData = [
+					...mappedData,
+					{   id: val.id,
+						date: new Date(val.created_at).toUTCString().slice(5,16),
+						customerId: val.customer_id,
+						number: val.id,
+						paidStatus: val.paid_status,
+						amount: val.amount,
+						amountDue: val.amount_due
+					}
+				]
+			));
+            dispatch({
+                type: 'SET_INVOICE',
+                payload: mappedData,
+            });
+            // console.log(...data)
+            
+            // console.log(...mappedData)
             // console.log(items);
         })();
         return () => { };
     }, []);
 
 
+
 	// initialState.items=[initialState.items, itemResponse];
 	const [state, dispatch] = useReducer(AppReducer, initialState);
-	
-	function changeMenu(val){
-		console.log({val});
-		switch (val) {
-			case 'customers' : 
-				return changeView(val,VIEWS.VIEW_CUSTOMER);
-			case 'items' :
-				return changeView(val,VIEWS.VIEW_ITEM);
-			case 'invoices' :
-				return changeView(val,VIEWS.VIEW_INVOICE);
-			default : 
-				return console.log('Menu fallback to defaults case');
-		}
-	}
-
-	function changeView(Menu, View){
-		dispatch({
-			type: 'CHANGE_VIEW',
-			payload: {menu: Menu,view: View},
-		  });
-	}
-
 
 	return (
 		<AppContext.Provider
@@ -168,12 +194,8 @@ export const AppProvider = (props) => {
 				items: state.items,
 				invoices: state.invoices,
 				currentMenu: state.currentMenu,
-				// currentView: state.currentView,
-				// itemResponse:state.itemResponse,
 
 				dispatch,
-				changeMenu,
-				// changeView,
 				setItemResponse,
 				setLoading,
 			}}

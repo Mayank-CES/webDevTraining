@@ -1,0 +1,45 @@
+.formInput{
+    /* display: flex; */
+    /* margin: 15px 0px 15px 0px; */
+    flex-flow: column nowrap;
+    width: 40%;
+    padding: 10px 5px 10px 5px;
+    color: darkslategray;
+  
+}
+
+.form-input-vals{
+    padding: 10px 10px 10px 20px; 
+    margin: 10px 10px 10px 20px;
+    border-radius: 5px;
+    border: 1px solid darkslategray;
+    text-align: left;
+    font-size: small;
+    width: 75%;
+}
+
+label{
+    font-size: medium;
+    width: 90%;
+    text-align: left;
+    margin: 5px 10px 0px 20px;
+}
+.form-error{
+    font-size: smaller;
+    padding: 2px;
+    margin: 5px 10px 0px 20px;
+    color: red;
+    display: none;
+    text-align: left;
+    width: 90%;
+}
+  
+input:invalid[focused="true"]{
+    border: 1px solid red;
+}
+  
+input:invalid[focused="true"] ~ span{
+    display: block;
+}
+  
+  
